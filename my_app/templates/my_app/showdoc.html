@@ -1,0 +1,77 @@
+{% extends 'my_app/base.html'%}
+{% block styles %}
+    <style>
+        .welcome_docmed_area {
+            background-color: #f9f9f9; /* Foni */
+            padding: 50px 0; /* Ichki masofa */
+        }
+
+        .welcome_thumb {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px; /* Pastki bosqichni o'lchami */
+        }
+
+        .welcome_thumb .thumb_1,
+        .welcome_thumb .thumb_2 {
+            display: inline-block;
+            width: 45%; /* 45% ni o'lchami */
+            border-radius: 10px; /* Rasmning kengligiga belgilash */
+        }
+
+        .welcome_thumb img {
+            max-width: 100%; /* Rasmning eng kichik qismini to'ldirish */
+            border-radius: 10px; /* Rasmning kengligiga belgilash */
+        }
+
+        .welcome_docmed_info {
+            padding: 20px; /* So'zlar orasidagi masofa */
+            background-color: #ffffff; /* So'zlar uchun foni */
+            border-radius: 10px; /* Chiroqli chop etilishi */
+            text-align: center; /* Matnning markaziy o'rnatilishi */
+        }
+    </style>
+{% endblock styles %}
+
+{% block content %}
+    <!-- bradcam_area_start  -->
+    <div class="bradcam_area breadcam_bg bradcam_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Biz haqimizda</h3>
+                        <p><a href="{% url 'index' %}">Bosh sahifa /</a>{{ doc.name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bradcam_area_end  -->
+
+    <div class="welcome_docmed_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="welcome_thumb">
+                        <div class="thumb_1">
+                            <img src="{{ doc.image.url }}" alt="">
+                        </div>
+                        <div class="thumb_2">
+                            <img src="{{ doc.image.url }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="welcome_docmed_info">
+                        <div>
+                            <h2>{{ doc.soha }}</h2>
+                            <h3>{{ doc.name }}</h3>
+                            <p>{{ doc.about_doctor }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
